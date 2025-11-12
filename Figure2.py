@@ -48,8 +48,8 @@ plt.rcParams['axes.linewidth'] = 2.0
 plt.rcParams["legend.labelspacing"]=0.1
 #plt.rc_context({"xtick.major.pad": 8})
 #plt.rc_context({"ytick.major.pad": 5})
-plt.rc('xtick',labelsize=20)
-plt.rc('ytick',labelsize=20)
+plt.rc('xtick',labelsize=17)
+plt.rc('ytick',labelsize=17)
 #plt.rc('legend',fontsize=30)
 plt.rcParams["font.family"] = "serif"
 plt.rcParams['mathtext.fontset'] ="cm"
@@ -140,9 +140,9 @@ for j in range(0,numberofangles):
         ax.set_ylim(0,1.05)
         ax.set_xlim(0.1,9900)
         ax.tick_params(axis="x",which="minor" ,bottom=True,left=True, top=True ,right=True,direction="in",length=4)
-        ax.tick_params(axis="x",which="major" ,bottom=True,left=True, top=True ,right=True,direction="in",length=8)
+        ax.tick_params(axis="x",which="major" ,bottom=True,left=True, top=True ,right=True,direction="in",length=9)
         ax.tick_params(axis="y",which="minor" ,bottom=True,left=True, top=True ,right=True,direction="in",length=4)
-        ax.tick_params(axis="y",which="major" ,bottom=True,left=True, top=True ,right=True,direction="in",length=8)
+        ax.tick_params(axis="y",which="major" ,bottom=True,left=True, top=True ,right=True,direction="in",length=9)
 
 ax=axes[0,0]
 props = dict(boxstyle='round', facecolor='white', alpha=0.2)

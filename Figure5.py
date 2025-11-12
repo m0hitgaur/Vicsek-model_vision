@@ -145,9 +145,10 @@ ax.tick_params(which='minor', direction="in", length=4, color="black",right=True
 #ax.annotate( r"$\alpha$ = " + f'{angles_rad[j]}',size=17,xy=(0.5,0.1),xycoords="axes fraction")
 #ax.annotate(label[j],size=15,xy=(0.05,0.85),xycoords="axes fraction")
 
-ax.set_xlabel(r'$t$',fontsize=25)
+#ax.set_xlabel(r'$t$',fontsize=25)
 #ax.set_ylabel(r'$\langle \xi_{v} \rangle \; , \langle R_g \rangle$',fontsize=25,labelpad=0.1)
 ax.annotate( r'$\langle \xi_{v}(t) \rangle \; , \langle R_g(t) \rangle$',size=23,xy=(-0.14,0.3),xycoords="axes fraction",rotation=90)    
+ax.annotate( r'$t$',size=23,xy=(0.4,-0.08),xycoords="axes fraction")    
 
 ax.legend(loc="best", prop={'size': 12},labelspacing = 0.2,frameon=False,bbox_to_anchor=(0.1, 0.1, 0.5, 0.5))
 ax.title.set_position((0.15, 0.9))
@@ -176,5 +177,5 @@ ax.text(-0.5,1,string,transform=ax.transAxes,fontsize=10,verticalalignment='top'
 #plt.legend()
 plt.tight_layout()
 
-plt.savefig('fig3.pdf', format='pdf',bbox_inches='tight')
+#plt.savefig('fig3.pdf', format='pdf',bbox_inches='tight')
 plt.show()
