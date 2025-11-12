@@ -138,7 +138,7 @@ for j, current_angle in enumerate(angles):
     avgmass = []
     for current_trial in range(number_of_trials):
         for t, current_time in enumerate(times):
-            path_template_mass = os.path.join(current_directory, f'Angle_{current_angle}', f'Noise_{noises[2]}', 'cluster_index', f'mass_{current_trial}_{current_time}_.txt')
+            path_template_mass = os.path.join(current_directory, f'Angle_{current_angle}', f'Noise_{noises[1]}', 'cluster_index', f'mass_{current_trial}_{current_time}_.txt')
             mass,b =np.histogram(load_data(path_template_mass),bins=bins)
             if mass is not None:
                 avgmass.append(mass)
@@ -157,7 +157,7 @@ for j, current_angle in enumerate(angles):
 #            for i, f_val in enumerate(frequency): 
 #                file.write(f"{x_centers[i]} {f_val} \n")    
         
-        axes[2].plot(x_centers, frequency, label=r"$\alpha =$" + angles_rad[j],marker=markers[j],markerfacecolor="None")
+        axes[1].plot(x_centers, frequency, label=r"$\alpha =$" + angles_rad[j],marker=markers[j],markerfacecolor="None")
 
 
 # --- Plot 3 ---
@@ -170,7 +170,7 @@ for j, current_angle in enumerate(angles):
     avgmass = []
     for current_trial in range(number_of_trials):
         for t, current_time in enumerate(times):
-            path_template_mass = os.path.join(current_directory, f'Angle_{current_angle}', f'Noise_{noises[1]}', 'cluster_index', f'mass_{current_trial}_{current_time}_.txt')
+            path_template_mass = os.path.join(current_directory, f'Angle_{current_angle}', f'Noise_{noises[2]}', 'cluster_index', f'mass_{current_trial}_{current_time}_.txt')
             mass,b =np.histogram(load_data(path_template_mass),bins=bins)
             if mass is not None:
                 avgmass.append(mass)
@@ -189,7 +189,7 @@ for j, current_angle in enumerate(angles):
             for i, f_val in enumerate(frequency): 
                 file.write(f"{x_centers[i]} {f_val} \n")    
         
-        axes[1].plot(x_centers, frequency, label=r"$\alpha =$" + angles_rad[j],marker=markers[j],markerfacecolor="None")
+        axes[2].plot(x_centers, frequency, label=r"$\alpha =$" + angles_rad[j],marker=markers[j],markerfacecolor="None")
 
 #********************************Customise*******************************************************
 
@@ -233,8 +233,8 @@ axes[n2].set_xscale("log") # Set X-axis to logarithmic scale
 axes[n2].set_yscale("log") # Set Y-axis to logarithmic scale
 axes[n2].legend(prop={'size': 15},labelspacing = 0.1,frameon=False,bbox_to_anchor=(0.4, 0.3, 0.2, 0.2))
 #axes[n2].set_ylim(0.0000001,0.003)
-axes[n2].set_xlim(0,1000)
-axes[n2].annotate(r"$\eta = "+f"{noises[1]}$", size=20, xy=(0.6, 0.8), xycoords="axes fraction")
+#axes[n2].set_xlim(0,2500)
+axes[n2].annotate(r"$\eta = "+f"{noises[2]}$", size=20, xy=(0.6, 0.8), xycoords="axes fraction")
 axes[n2].tick_params(axis="x", direction="in",labelsize=15)
 axes[n2].tick_params(axis="y", direction="in",labelsize=15)
 #axes[n2].xaxis.set_major_locator(MultipleLocator(25))
@@ -243,7 +243,7 @@ axes[n2].tick_params(axis="y", direction="in",labelsize=15)
 #axes[n2].yaxis.set_minor_locator(MultipleLocator(0.1))
 axes[n2].tick_params(which='minor', direction="in", length=4, color="black",left=True,bottom=True,right=True,top=True)
 axes[n2].tick_params(which='major', direction="in", length=8, color="black",left=True,bottom=True,right=True,top=True)
-axes[n2].annotate(label[2],size=25,xy=(0.8,0.9),xycoords="axes fraction")
+axes[n2].annotate(label[1],size=25,xy=(0.8,0.9),xycoords="axes fraction")
 
 
 
@@ -257,8 +257,8 @@ axes[n3].set_xscale("log") # Set X-axis to logarithmic scale
 axes[n3].set_yscale("log") # Set Y-axis to logarithmic scale
 axes[n3].legend(prop={'size': 15},labelspacing = 0.1,frameon=False,bbox_to_anchor=(0.4, 0.3, 0.2, 0.2))
 #axes[n3].set_ylim(0.0000001,0.003)
-axes[n3].set_xlim(0,1000)
-axes[n3].annotate(r"$\eta = "+f"{noises[2]}$", size=20, xy=(0.6, 0.8), xycoords="axes fraction")
+#axes[n3].set_xlim(0,2500)
+axes[n3].annotate(r"$\eta = "+f"{noises[1]}$", size=20, xy=(0.6, 0.8), xycoords="axes fraction")
 axes[n3].tick_params(axis="x", direction="in",labelsize=15)
 axes[n3].tick_params(axis="y", direction="in",labelsize=15)
 #axes[n3].xaxis.set_major_locator(MultipleLocator(25))
@@ -267,7 +267,7 @@ axes[n3].tick_params(axis="y", direction="in",labelsize=15)
 #axes[n3].yaxis.set_minor_locator(MultipleLocator(0.1))
 axes[n3].tick_params(which='minor', direction="in", length=4, color="black",left=True,bottom=True,right=True,top=True)
 axes[n3].tick_params(which='major', direction="in", length=8, color="black",left=True,bottom=True,right=True,top=True)
-axes[n3].annotate(label[1],size=25,xy=(0.8,0.9),xycoords="axes fraction")
+axes[n3].annotate(label[2],size=25,xy=(0.8,0.9),xycoords="axes fraction")
 
 
 x_=np.linspace(40,200,1000)
