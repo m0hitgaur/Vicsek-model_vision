@@ -145,5 +145,5 @@ fig.add_artist(line)
 
 
 plt.subplots_adjust(left=0.043, right=0.852, top=0.93, bottom=0.021, wspace=0.1, hspace=0.1)
-plt.savefig('fig2.pdf', format='pdf')
+#plt.savefig('fig2.pdf', format='pdf')
 plt.show()
