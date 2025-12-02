@@ -4,7 +4,7 @@ import glob
 from itertools import product
 import os
 import matplotlib.animation as animation
-
+from  matplotlib.animation import FFMpegWriter
 current_directory = os.getcwd()
 
 
@@ -108,6 +108,8 @@ while(flag==0):
 
         # Create the animation
         ani = animation.FuncAnimation(fig, update, frames=len(times), blit=False)
+        writer = FFMpegWriter(fps=10, bitrate=-1)   # -1 = auto bitrate
+        ani.save(f"{angle}_{noise}_{trial}.mp4", writer=writer)
 
         # Show the animation
         plt.show()
