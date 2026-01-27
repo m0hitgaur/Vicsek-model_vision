@@ -12,7 +12,7 @@ current_directory = os.getcwd()
 
 
 # Parameters
-noises=[0.05,0.5,1]
+noises=[0.05,0.5,2]
 angles=[45,90,120,180]
 detail=[]
 with open(current_directory+f'/Angle_{angles[0]}/Noise_{noises[0]}/parameters.txt', 'r') as file:
@@ -124,13 +124,14 @@ for j in range(0,numberofangles):
         ax.legend(loc="best", prop={'size': 11},labelspacing = 0.2,frameon=False,bbox_to_anchor=(0.5, 0.3, 0.5, 0.5))
         ax.title.set_position((0.15, 0.9))
         #ax.set_ylim(0,1.05)
-        ax.set_xlim(0,9900)
+        #ax.set_xlim(0,9900)
         ax.tick_params(axis='x', which='minor')
         ax.tick_params(left=True, top=True ,right=True)
         ax.tick_params(axis="x", direction="in")
         ax.tick_params(axis="y", direction="in")
         # ax.set_xscale("log")
         #  ax.set_yscale("log")
+
 ax=axes[0,0]
 props = dict(boxstyle='round', facecolor='white', alpha=0.2)
 string=f"$N=${Number_of_agents} \n"+"$L=$"+f"{Lx} "

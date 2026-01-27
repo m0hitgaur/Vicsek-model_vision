@@ -5,11 +5,11 @@ import glob
 from itertools import product
 import os
 from matplotlib.ticker import (MultipleLocator, AutoMinorLocator)
-
+import matplotlib
 
 current_directory = os.getcwd()
 
-
+matplotlib.use('Qt5Agg')
 
 # Parameters
 noises=[0.05,0.5,2]
@@ -112,19 +112,19 @@ for j in range(0,numberofangles):
                 # Load data
                 o = load_data(path)
                 if(len(o)!=0):
-                    number[t]+=float(len(o))
-
-        number/=numberoftrials
+                    number[t]+=1/float(len(o))
+        number*=Number_of_agents/numberoftrials
 
         # Plot
         ax = axes[j] 
 
         if(j==0):
             ax.plot(times,number, c=colour[i], marker=markers[i],label=r"$\eta =$"+f"{noises_str[i]}", markeredgecolor=colour[i],markerfacecolor="None")
+            ax.legend( prop={'size': 17},labelspacing = 0.2,frameon=False,bbox_to_anchor=(0.1, 0.2, 0.2, 0.6))
+           
         else:
             ax.plot(times,number, c=colour[i], marker=markers[i], markeredgecolor=colour[i],markerfacecolor="None")
-        ax.legend( prop={'size': 17},labelspacing = 0.2,frameon=False,bbox_to_anchor=(0.1, 0.2, 0.2, 0.6))
-            
+ 
             
         ax.annotate( r"$\alpha$ = " + f'{angles_rad[j]}',size=25,xy=(0.15,0.7),xycoords="axes fraction")
         ax.annotate(label[j],size=15,xy=(0.05,0.85),xycoords="axes fraction")
@@ -132,18 +132,18 @@ for j in range(0,numberofangles):
         if(j==1):
             ax.set_xlabel(r'$t$',fontsize=25)
         if(i==0):
-            ax.set_ylabel(r'$\langle n_c(t) \rangle$',fontsize=25,labelpad=1)
+            ax.set_ylabel(r'$\langle N/n_c(t) \rangle$',fontsize=25,labelpad=1)
         
         ax.title.set_position((0.15, 0.9))
         #ax.set_ylim(0,1.05)
-        ax.set_xlim(7,9000)
+        #ax.set_xlim(7,9000)
         ax.set_xscale("log")
         #ax.set_yscale("log")
         ax.tick_params(axis='x', which='minor')
         ax.tick_params(left=True, top=True ,right=True)
         ax.tick_params(axis="x", direction="in")
         ax.tick_params(axis="y", direction="in")
-        ax.annotate(r"$9 \times 10^3$",size=17,xy=(0.925,-0.09),xycoords="axes fraction")
+
 ax=axes[0]
 #props = dict(boxstyle='round', facecolor='None', alpha=0.2)
 #string=f"$N=${Number_of_agents} \n"+"$L=$"+f"{Lx} "
@@ -156,17 +156,17 @@ ax2=axes[1]
 
 #ax1.xaxis.set_major_locator(MultipleLocator(2500))
 #ax1.xaxis.set_minor_locator(MultipleLocator(1250))
-ax1.yaxis.set_major_locator(MultipleLocator(4))
-ax1.yaxis.set_minor_locator(MultipleLocator(2))
-ax1.set_ylim(0,22)
+#ax1.yaxis.set_major_locator(MultipleLocator(4))
+#ax1.yaxis.set_minor_locator(MultipleLocator(2))
+#ax1.set_ylim(0,22)
 ax1.tick_params(which='minor', direction="in", length=4, color="black",right=True,top=True)
 
 #ax2.xaxis.set_major_locator(MultipleLocator(2500))
 #ax2.xaxis.set_minor_locator(MultipleLocator(1250))
-ax2.yaxis.set_major_locator(MultipleLocator(2))
-ax2.yaxis.set_minor_locator(MultipleLocator(1))
+#ax2.yaxis.set_major_locator(MultipleLocator(2))
+#ax2.yaxis.set_minor_locator(MultipleLocator(1))
 ax2.tick_params(which='minor', direction="in", length=4, color="black",right=True,top=True)
 
-plt.savefig('fig_avg_cluster.pdf', format='pdf',bbox_inches='tight')
+
 plt.tight_layout()
 plt.show()

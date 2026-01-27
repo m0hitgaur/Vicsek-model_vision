@@ -28,7 +28,7 @@ N=2560
 current_angle=45
 current_noise=2
 current_trial=80
-current_time=9300   
+current_time=5000   
 
 # --- Load Data ---
 path_template_x = os.path.join(current_directory, f'Angle_{current_angle}', f'Noise_{current_noise}', 'flockingdata', f'positionx_{current_trial}_{current_time}_.dat')

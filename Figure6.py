@@ -14,7 +14,7 @@ current_directory = os.getcwd()
 #rcParams['text.latex.preamble'] = [r'\usepackage{lmodern}'] 
 plt.rcParams['axes.linewidth'] = 2.0
 #plt.rcParams["legend.labelspacing"]=0.1
-plt.rcParams["font.weight"]=700
+#plt.rcParams["font.weight"]=700
 #plt.rc_context({"xtick.major.pad": 8})
 #plt.rc_context({"ytick.major.pad": 5})
 plt.rc('xtick',labelsize=25)
@@ -59,6 +59,7 @@ x_centers = 0.5 * (bins[:-1] + bins[1:]) # center of each bin
 # Define simulation parameters 
 angles=["45","90","120","180"]
 angles_rad=[r"$\pi/4$",r"$\pi/2$",r"$2\pi/3$",r"$\pi$"]
+noises_str=["2.0","0.5","0.05"]
 noises=["2","0.5","0.05"]
 noise_to_plot=noises[2]
 number_of_trials=100
@@ -98,7 +99,7 @@ for j, current_noise in enumerate(noises):
         frequency/=len(avgmass)
         frequency = frequency.astype(float)
         frequency /= frequency.sum()*25 
-        axes[0].plot(x_centers, frequency, label=r"$\eta =$ $" + current_noise+r"$", marker=markers[j],markerfacecolor="None")
+        axes[0].plot(x_centers, frequency, label=r"$\eta =$ $" + noises_str[j]+r"$", marker=markers[j],markerfacecolor="None")
 
 #Inset
 avgmass = []
@@ -125,7 +126,7 @@ ax_in.set_yscale("log")
 ax_in.tick_params(which='minor', direction="in", length=1.5, color="black",left=True,bottom=True,right=True,top=True)
 ax_in.tick_params(which='major', direction="in", length=3, color="black",left=True,bottom=True,right=True,top=True)
 ax_in.set_xlim(25,850)
-ax_in.annotate(r"$\eta=2$",xycoords="axes fraction",xy=(0.4,0.7),size=18)
+ax_in.annotate(r"$\eta=2.0$",xycoords="axes fraction",xy=(0.4,0.7),size=18)
 ax_in.xaxis.set_major_locator(MultipleLocator(200))
 ax_in.xaxis.set_minor_locator(MultipleLocator(50))
 ax_in.tick_params(axis='y', which='major', pad=1)
@@ -213,17 +214,17 @@ axes[n1].tick_params(axis="y", direction="in",labelsize=15)
 axes[n1].tick_params(which='minor', direction="in", length=4, color="black",left=True,bottom=True,right=True,top=True)
 axes[n1].tick_params(which='major', direction="in", length=8, color="black",left=True,bottom=True,right=True,top=True)
 
-axes[n1].annotate(r"$\alpha =\pi/4$", size=25, xy=(0.5, 0.87), xycoords="axes fraction")
-axes[n1].annotate(label[0],size=20,xy=(0.05,0.7),xycoords="axes fraction")
+axes[n1].annotate(r"$\alpha =\pi/4$", size=20, xy=(0.4, 0.9), xycoords="axes fraction")
+axes[n1].annotate(label[0],size=23,xy=(0.83,0.9),xycoords="axes fraction")
 
-axes[n1].legend(prop={'size': 15},labelspacing= 0,frameon=False,bbox_to_anchor=(0.46, 0.55, 0.31, 0.2))
-
-
+axes[n1].legend(prop={'size': 13},labelspacing= 0,frameon=False,bbox_to_anchor=(0.5, 0.64))
 
 
 
 
-# Second subplot
+
+
+# Third subplot
 n2=2
 #axes[n2].set_title(r'Mass Distribution for $\eta = 0.5$', fontsize=16)
 #axes[n2].set_xlabel(r'$m_{c}$', fontsize=25)
@@ -231,10 +232,10 @@ n2=2
 axes[n2].annotate(r"$m_c$", size=25, xy=(0.45, -0.1), xycoords="axes fraction")
 axes[n2].set_xscale("log") # Set X-axis to logarithmic scale
 axes[n2].set_yscale("log") # Set Y-axis to logarithmic scale
-axes[n2].legend(prop={'size': 15},labelspacing = 0.1,frameon=False,bbox_to_anchor=(0.4, 0.3, 0.2, 0.2))
+axes[n2].legend(prop={'size': 15},labelspacing = 0.1,frameon=False,bbox_to_anchor=(0.4, 0.3, 0.15, 0.2))
 #axes[n2].set_ylim(0.0000001,0.003)
 #axes[n2].set_xlim(0,2500)
-axes[n2].annotate(r"$\eta = "+f"{noises[2]}$", size=20, xy=(0.6, 0.8), xycoords="axes fraction")
+axes[n2].annotate(r"$\eta = "+f"{noises_str[2]}$", size=20, xy=(0.4, 0.9), xycoords="axes fraction")
 axes[n2].tick_params(axis="x", direction="in",labelsize=15)
 axes[n2].tick_params(axis="y", direction="in",labelsize=15)
 #axes[n2].xaxis.set_major_locator(MultipleLocator(25))
@@ -243,11 +244,11 @@ axes[n2].tick_params(axis="y", direction="in",labelsize=15)
 #axes[n2].yaxis.set_minor_locator(MultipleLocator(0.1))
 axes[n2].tick_params(which='minor', direction="in", length=4, color="black",left=True,bottom=True,right=True,top=True)
 axes[n2].tick_params(which='major', direction="in", length=8, color="black",left=True,bottom=True,right=True,top=True)
-axes[n2].annotate(label[1],size=25,xy=(0.8,0.9),xycoords="axes fraction")
+axes[n2].annotate(label[n2],size=23,xy=(0.83,0.9),xycoords="axes fraction")
 
 
 
-# Third subplot
+# Second subplot
 n3=1
 #axes[n3].set_title(r'Mass Distribution for $\eta = 0.5$', fontsize=16)
 #axes[n3].set_xlabel(r'$m_{c}$', fontsize=25)
@@ -255,10 +256,10 @@ n3=1
 axes[n3].annotate(r"$m_c$", size=25, xy=(0.45, -0.1), xycoords="axes fraction")
 axes[n3].set_xscale("log") # Set X-axis to logarithmic scale
 axes[n3].set_yscale("log") # Set Y-axis to logarithmic scale
-axes[n3].legend(prop={'size': 15},labelspacing = 0.1,frameon=False,bbox_to_anchor=(0.4, 0.3, 0.2, 0.2))
+axes[n3].legend(prop={'size': 15},labelspacing = 0.1,frameon=False,bbox_to_anchor=(0.4, 0.3, 0.15, 0.2))
 #axes[n3].set_ylim(0.0000001,0.003)
 #axes[n3].set_xlim(0,2500)
-axes[n3].annotate(r"$\eta = "+f"{noises[1]}$", size=20, xy=(0.6, 0.8), xycoords="axes fraction")
+axes[n3].annotate(r"$\eta = "+f"{noises[1]}$", size=20, xy=(0.4, 0.9), xycoords="axes fraction")
 axes[n3].tick_params(axis="x", direction="in",labelsize=15)
 axes[n3].tick_params(axis="y", direction="in",labelsize=15)
 #axes[n3].xaxis.set_major_locator(MultipleLocator(25))
@@ -267,7 +268,7 @@ axes[n3].tick_params(axis="y", direction="in",labelsize=15)
 #axes[n3].yaxis.set_minor_locator(MultipleLocator(0.1))
 axes[n3].tick_params(which='minor', direction="in", length=4, color="black",left=True,bottom=True,right=True,top=True)
 axes[n3].tick_params(which='major', direction="in", length=8, color="black",left=True,bottom=True,right=True,top=True)
-axes[n3].annotate(label[2],size=25,xy=(0.8,0.9),xycoords="axes fraction")
+axes[n3].annotate(label[n3],size=23,xy=(0.83,0.9),xycoords="axes fraction")
 
 
 x_=np.linspace(40,200,1000)
@@ -278,9 +279,9 @@ x_=np.linspace(40,200,1000)
 #axes[n3].annotate(r"$ m_{c}^{-3/2} $",size=15,xy=(0.4,0.8),xycoords="axes fraction")
 
 
-x__=np.linspace(100,500,100)
+x__=np.linspace(100,300,100)
 axes[n1].plot(x__,(20*x__**(-1.8)),linestyle="--",color="black")
-axes[n1].annotate(r"$ m_{c}^{-9/5} $",size=15,xy=(0.3,0.8),xycoords="axes fraction")
+axes[n1].annotate(r"$ m_{c}^{-9/5} $",size=15,xy=(0.33,0.78),xycoords="axes fraction")
 
 
 plt.subplots_adjust(left=0.085,bottom=0.133,right=0.971,top=0.964,wspace=0.205,hspace=0.2)

@@ -10,7 +10,7 @@ current_directory = os.getcwd()
 parameter_file_path = "fluctuationparameters.txt"
 data_folder_name = "flockingdata"
 
-noises=["1","0.5","0.05"]
+noises=["2","0.5","0.05"]
 angles=["180","120","90","45"]
 
 # Extract parameters for clarity

@@ -128,9 +128,9 @@ for n in range(len(noise)):
     
            
 
-label_colourbar=[[r"$-\pi$",r"$\pi/3$",r"0",r"$\pi/2$"],["-0.05","0","0.05"]]
-
-tick=[[-3.14, -1 ,0,1.5],[-0.05,0,0.05]]
+label_colourbar=[[r"$-2.8$",r"0",r"$2.8$"],[r"$-2.1$","0",r"$1.04$"]]
+   #-2.8,2.8   -2.1 2\pi/3   1.04 \pi/3  
+tick=[[-2.8 ,0,2.8],[-2.1,0,1.04]]
 
 axes_dev=[axes[0,0],axes[0,1]]
 
@@ -169,9 +169,8 @@ for i,ax in enumerate(axes_dev):
     avg_vy=np.sum(vy)/float(len(vy))
     dvx=vx-avg_vx
     dvy=vy-avg_vy
-    theta_avg=np.sum(theta)/float(len(theta))
     # Map the direction (angle) to colors using the colormap
-    dtheta=theta-theta_avg 
+    dtheta=np.atan2(dvy,dvx) 
     
     #periodic boundary condition
 
@@ -238,4 +237,5 @@ axes[0,1].annotate( r"$\alpha=$"+f"{angles_rad[1]}",size=25,xy=(0.2,1.075),xycoo
 axes[1,1].annotate( f" ",size=5,xy=(0.9,1.1),xycoords="axes fraction")
 
 #plt.subplots_adjust(left=0.057, right=0.912, top=0.933, bottom=0.052, wspace=0.167, hspace=0.1)
+plt.savefig('fig4.pdf', format='pdf',bbox_inches='tight')
 plt.show()

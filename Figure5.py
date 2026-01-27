@@ -118,7 +118,7 @@ ax.plot(t_rad_45,rad_45, c=colour[1], marker="v",label=r"$ R_g \;  (\alpha=$"+f"
 
 ax.plot(t_corr_180,corr_180, c=colour[0], marker="^",label=r"$ \xi_{v} \; (\alpha =$"+f"{angles_rad[1]})", markeredgecolor=colour[0],markerfacecolor="None")
 ax.plot(t_rad_180,rad_180, c=colour[1], marker="^",label=r"$ R_g \; (\alpha =$"+f"{angles_rad[1]})", markeredgecolor=colour[1],markerfacecolor="None")
-x=np.linspace(20,800,10) 
+x=np.linspace(20,400,10) 
 ax.plot(x,2.7*x**0.2,color="black")    
 ax.annotate( r"$t^{1/5}$",size=15,xy=(0.62,0.8),xycoords="axes fraction")    
 
@@ -177,5 +177,5 @@ ax.text(-0.5,1,string,transform=ax.transAxes,fontsize=10,verticalalignment='top'
 #plt.legend()
 plt.tight_layout()
 
-#plt.savefig('fig3.pdf', format='pdf',bbox_inches='tight')
+plt.savefig('fig5.pdf', format='pdf',bbox_inches='tight')
 plt.show()
