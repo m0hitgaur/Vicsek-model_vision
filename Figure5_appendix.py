@@ -126,7 +126,7 @@ velo_corr_180,velo_t_corr_180 = np.delete(velo_corr_180,delete),np.delete(velo_t
 
 
 # Plot
-ax.plot(t_corr_45,corr_45, c=colour[1], marker="v",label=r"$\xi_{\delta v} \; (\alpha =$"+f"{angles_rad[0]})", markeredgecolor=colour[1],markerfacecolor="None")
+ax.plot(t_corr_45,corr_45, c=colour[1], marker="o",label=r"$\xi_{\delta v} \; (\alpha =$"+f"{angles_rad[0]})", markeredgecolor=colour[1],markerfacecolor="None")
 ax.plot(t_corr_180,corr_180, c=colour[1], marker="^",label=r"$\xi_{\delta v} \;(\alpha =$"+f"{angles_rad[1]})", markeredgecolor=colour[1],markerfacecolor="None")
 ax_in.plot(velo_t_corr_45,velo_corr_45, c=colour[0], marker="o",label=r"$ \xi_{v} \; (\alpha =$"+f"{angles_rad[0]})", markeredgecolor=colour[0],markerfacecolor="None")
 ax_in.plot(velo_t_corr_180,velo_corr_180, c=colour[0], marker="^",label=r"$ \xi_{v} \; (\alpha =$"+f"{angles_rad[1]})", markeredgecolor=colour[0],markerfacecolor="None")
@@ -191,5 +191,5 @@ ax.text(-0.5,1,string,transform=ax.transAxes,fontsize=10,verticalalignment='top'
 #plt.legend()
 plt.tight_layout()
 
-plt.savefig('fig3.pdf', format='pdf',bbox_inches='tight')
+plt.savefig('fig5_appendix.pdf', format='pdf',bbox_inches='tight')
 plt.show()

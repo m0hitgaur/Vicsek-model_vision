@@ -113,8 +113,8 @@ corr_180,t_corr_180 = load_data(path_corr_180)
 rad_180,t_rad_180 =load_data(path_radius_180)
 
 # Plot
-ax.plot(t_corr_45,corr_45, c=colour[0], marker="v",label=r"$ \xi_{v} \;(\alpha =$"+f"{angles_rad[0]})", markeredgecolor=colour[0],markerfacecolor="None")
-ax.plot(t_rad_45,rad_45, c=colour[1], marker="v",label=r"$ R_g \;  (\alpha=$"+f"{angles_rad[0]})", markeredgecolor=colour[1],markerfacecolor="None")
+ax.plot(t_corr_45,corr_45, c=colour[0], marker="o",label=r"$ \xi_{v} \;(\alpha =$"+f"{angles_rad[0]})", markeredgecolor=colour[0],markerfacecolor="None")
+ax.plot(t_rad_45,rad_45, c=colour[1], marker="o",label=r"$ R_g \;  (\alpha=$"+f"{angles_rad[0]})", markeredgecolor=colour[1],markerfacecolor="None")
 
 ax.plot(t_corr_180,corr_180, c=colour[0], marker="^",label=r"$ \xi_{v} \; (\alpha =$"+f"{angles_rad[1]})", markeredgecolor=colour[0],markerfacecolor="None")
 ax.plot(t_rad_180,rad_180, c=colour[1], marker="^",label=r"$ R_g \; (\alpha =$"+f"{angles_rad[1]})", markeredgecolor=colour[1],markerfacecolor="None")

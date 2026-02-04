@@ -126,7 +126,7 @@ for i in range(0,numberofangles):
     path = current_directory+f'/Angle_{angles[i]}/Noise_{noises[0]}/correlation_data/velocitycorrelation_vs_r_{time[timetoplot]}_.dat'
 
     if(i==0):
-        path = current_directory+"/velocitycorrelation_vs_r_.dat"
+        path = current_directory+f"/Figure/correlation/vcf_vs_r_45_005.dat"
     
     # Load connected correlation function vs r data
     ccf,r = load_data(path)     

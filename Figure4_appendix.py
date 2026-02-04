@@ -15,7 +15,7 @@ current_directory = os.getcwd()
 markers=["o","s","^"]
 label=["(a)","(b)","(c)","(d)","(e)","(f)"]
 noises=[0.05,2]
-noise_str=["005","05","2"]
+noise_str=["005","2"]
 angles=[45,180]
 time=[10,100,1000,5000]
 label_size=25
@@ -99,7 +99,9 @@ for i in range(len(time)):
     ax.annotate(r"$\eta =$"+noises_str[0],size=25,xy=(0.55,0.85),xycoords="axes fraction")
     ax.annotate(r"$\alpha =$"+angles_rad[0],size=25,xy=(0.55,0.775),xycoords="axes fraction")    
     ax.annotate(label[0],size=label_size,xy=(0.06,0.07),xycoords="axes fraction")
-    ax.set_ylabel(r'$C_{\delta v}(r)$',fontsize=30)
+    ax.annotate(r'$C_{\delta v}(r)$',size=30,xy=(-0.3,0.4),xycoords="axes fraction",rotation=90)
+    
+    #ax.set_ylabel(r'$C_{\delta v}(r)$',fontsize=30)
     ax.tick_params(left=True, top=True ,right=True)
     ax.tick_params(axis="x", direction="in")
     ax.tick_params(axis="y", direction="in")
@@ -113,19 +115,21 @@ for i in range(len(time)):
 
 
 for i in range(len(time)):
-    path = current_directory+f'/Angle_{angles[0]}/Noise_{noises[1]}/correlation_data/connectedcorrelation_vs_r_{time[i]}_.dat'
+    path = current_directory+f'/Angle\/Noise_{noises[1]}/correlation_data/connectedcorrelation_vs_r_{time[i]}_.dat'
     if(i==3):
         path = current_directory+f'/Figure/correlation/ccf_vs_r_{int(angles[0])}_{noise_str[1]}.dat'
     # Load connected correlation function vs r data
     ccf,r = load_data(path)
-    ax=axes[0,1]
+    ax=axes[1,0]
     #ax.set_xlabel('$r$',fontsize=25)
     ax.plot(r,ccf,c=colour_time[i], marker=markers[i],markerfacecolor="none", markeredgecolor=colour_time[i],label="$t=$"+f"{time[i]}")
     ax.annotate("$\eta =$"+noises_str[1],size=25,xy=(0.6,0.85),xycoords="axes fraction")
-    ax.annotate(label[1],size=label_size,xy=(0.06,0.07),xycoords="axes fraction")
+    ax.annotate(label[2],size=label_size,xy=(0.02,0.07),xycoords="axes fraction")
     ax.annotate(r"$\alpha =$"+angles_rad[0],size=25,xy=(0.6,0.775),xycoords="axes fraction")    
     ax.legend( prop={'size': 24},labelspacing = 0.2,frameon=False,bbox_to_anchor=(0.55, 0.25, 0.5, 0.5))
-    #ax.set_xlabel('$r$',fontsize=20)
+    ax.set_xlabel('$r$',fontsize=30)
+    #ax.set_ylabel(r'$C_{\delta v}(r)$',fontsize=30)    
+    ax.annotate(r'$C_{\delta v}(r)$',size=30,xy=(-0.3,0.4),xycoords="axes fraction",rotation=90)
     ax.set_xlim(0,Length_of_box/2)
     ax.tick_params(left=True, top=True ,right=True,bottom=True)
     ax.tick_params(axis="x", direction="in")
@@ -145,13 +149,12 @@ for i in range(len(time)):
     #    path = current_directory+f'/Figure/correlation/vcf_vs_r_{int(angles[1])}_{noise_str[0]}.dat'
     # Load connected correlation function vs r data
     ccf,r = load_data(path)
-    ax=axes[1,0]
-    ax.set_xlabel('$r$',fontsize=30)
+    ax=axes[0,1]
+    #ax.set_xlabel('$r$',fontsize=30)
     ax.plot(r,ccf,c=colour_time[i], marker=markers[i],markerfacecolor="none", markeredgecolor=colour_time[i],label="$t=$"+f"{time[i]}")
     ax.annotate(r"$\eta =$"+noises_str[0],size=25,xy=(0.6,0.85),xycoords="axes fraction")
-    ax.annotate(label[2],size=label_size,xy=(0.06,0.07),xycoords="axes fraction")
+    ax.annotate(label[1],size=label_size,xy=(0.06,0.07),xycoords="axes fraction")
     ax.annotate(r"$\alpha =$"+angles_rad[1],size=25,xy=(0.6,0.775),xycoords="axes fraction")    
-    ax.set_ylabel(r'$C_{\delta v}(r)$',fontsize=30)
     ax.set_xlim(0,Length_of_box/2)
     ax.set_ylim(-0.2,1.05)
     ax.tick_params(left=True, top=True ,right=True)
@@ -189,10 +192,11 @@ for i in range(len(time)):
     ax.yaxis.set_minor_locator(MultipleLocator(0.1))
     ax.tick_params(which='minor', direction="in", length=4, color="black",right=True,top=True,left=True,bottom=True)
     ax.tick_params(which='major', direction="in", length=6, color="black",right=True,top=True,left=True,bottom=True)
-
+plt.tight_layout()
+plt.savefig('fig4_appendix.pdf', format='pdf',bbox_inches='tight')
 
 #plt.legend()
-plt.tight_layout()
+
 plt.show()
 
 

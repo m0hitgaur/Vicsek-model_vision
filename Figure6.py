@@ -139,7 +139,7 @@ for j, current_angle in enumerate(angles):
     avgmass = []
     for current_trial in range(number_of_trials):
         for t, current_time in enumerate(times):
-            path_template_mass = os.path.join(current_directory, f'Angle_{current_angle}', f'Noise_{noises[1]}', 'cluster_index', f'mass_{current_trial}_{current_time}_.txt')
+            path_template_mass = os.path.join(current_directory, f'Angle_{current_angle}', f'Noise_{noises[2]}', 'cluster_index', f'mass_{current_trial}_{current_time}_.txt')
             mass,b =np.histogram(load_data(path_template_mass),bins=bins)
             if mass is not None:
                 avgmass.append(mass)
@@ -171,7 +171,7 @@ for j, current_angle in enumerate(angles):
     avgmass = []
     for current_trial in range(number_of_trials):
         for t, current_time in enumerate(times):
-            path_template_mass = os.path.join(current_directory, f'Angle_{current_angle}', f'Noise_{noises[2]}', 'cluster_index', f'mass_{current_trial}_{current_time}_.txt')
+            path_template_mass = os.path.join(current_directory, f'Angle_{current_angle}', f'Noise_{noises[1]}', 'cluster_index', f'mass_{current_trial}_{current_time}_.txt')
             mass,b =np.histogram(load_data(path_template_mass),bins=bins)
             if mass is not None:
                 avgmass.append(mass)
@@ -225,7 +225,7 @@ axes[n1].legend(prop={'size': 13},labelspacing= 0,frameon=False,bbox_to_anchor=(
 
 
 # Third subplot
-n2=2
+n2=1
 #axes[n2].set_title(r'Mass Distribution for $\eta = 0.5$', fontsize=16)
 #axes[n2].set_xlabel(r'$m_{c}$', fontsize=25)
 #axes[n2].set_ylabel(r'$P(m_c)$', fontsize=14)
@@ -249,7 +249,7 @@ axes[n2].annotate(label[n2],size=23,xy=(0.83,0.9),xycoords="axes fraction")
 
 
 # Second subplot
-n3=1
+n3=2
 #axes[n3].set_title(r'Mass Distribution for $\eta = 0.5$', fontsize=16)
 #axes[n3].set_xlabel(r'$m_{c}$', fontsize=25)
 #axes[n3].set_ylabel(r'$P(m_c)$', fontsize=14)
@@ -287,7 +287,7 @@ axes[n1].annotate(r"$ m_{c}^{-9/5} $",size=15,xy=(0.33,0.78),xycoords="axes frac
 plt.subplots_adjust(left=0.085,bottom=0.133,right=0.971,top=0.964,wspace=0.205,hspace=0.2)
 
 
-
+plt.savefig('fig6.pdf', format='pdf',bbox_inches='tight')
 # Display the plot
 plt.show()
 
